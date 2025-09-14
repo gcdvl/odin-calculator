@@ -1,75 +1,110 @@
-body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* full height center */
+    margin: 0;
+    background: linear-gradient(135deg, #1e293b, #0f172a); /* dark gradient bg */
+    font-family: "Segoe UI", sans-serif;
 }
 
-.base{
-    display:flex;
-    height:490px;
-    width:320px;
-    border-style: solid;
-    border-color: black;
-    margin-top:40px;
-    flex-direction:column;
-    border-radius:5px;
-    border-width:0.5px
-    
-    
+.base {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 340px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+    background: #111827; /* dark background */
 }
 
 .upper {
-    flex: 1; /* give upper section some space */
+    flex: 1;
     display: flex;
+    background: #1f2937;
+    color: white;
 }
 
 .display {
-    flex: 1;                 /* take full width of parent */
+    flex: 1;
     display: flex;
-    flex-direction: column;  /* stack expression and result */
-    justify-content: center; /* vertical centering */
-    align-items: flex-end;   /* align text to the right */
-    padding: 10px;
-    border: 1px solid black;
-    box-sizing: border-box;  /* padding doesn't break width */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .expression {
     font-size: 16px;
-    color: #666;
+    color: #9ca3af; /* light gray */
     min-height: 20px;
 }
 
 .result {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
-    min-height: 40px;
+    color: #f9fafb; /* almost white */
+    min-height: 50px;
 }
 
-.buttons
-{
-    
-    display:flex;
-    height:357px;
-    width:319px;
+.buttons {
+    display: flex;
     flex-wrap: wrap;
-    flex-direction:column;
-    margin-top:1.5px;
-    
-
-   
+    width: 100%;
+    height: 360px;
+    background: #1e293b;
 }
 
-.lower{
-    display:flex;
-   
-   
-   height : 357px;
+.btn {
+    flex: 1 0 25%; /* 4 buttons per row */
+    height: 90px;
+    font-size: 20px;
+     border: 1px solid #2d3748;
+    background: #334155;
+    color: #f9fafb;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
 }
 
-.btn{
-    height: 89.26px;
-    width:80px;
-    font-size:18px;
+.btn:hover {
+    background: #475569;
 }
+
+.btn:active {
+    transform: scale(0.95);
+    background: #64748b;
+}
+
+/* Special colors for operators */
+.btn.operator {
+    background: #f59e0b; /* amber */
+    color: #111;
+}
+
+.btn.operator:hover {
+    background: #fbbf24;
+}
+
+.btn.equal {
+    background: #f59e0b; /* green */
+    color: #111;
+    flex: 1 0 50%; /* make = span 2 columns */
+}
+
+.btn.equal:hover {
+    background: #fbbf24;
+}
+
+.btn.clear {
+    background: #f59e0b;; /* red */
+    color: #111;
+}
+
+.btn.clear:hover {
+    background:#fbbf24;
+}
+
+
 

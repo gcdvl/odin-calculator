@@ -93,3 +93,59 @@ buttons.forEach(btn => {
 
   });
 });
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key; // the key pressed on keyboard
+
+  // numbers
+  if (key >= "0" && key <= "9") {
+    currentValue += key;
+    expression += key;
+    expressionDisplay.textContent = expression;
+    resultDisplay.textContent = currentValue;
+  }
+
+  // operators
+  else if (key === "+" || key === "-" || key === "*" || key === "/") {
+    num1 = Number(currentValue);
+    opt = key;
+    currentValue = "";
+    expression += opt;
+    expressionDisplay.textContent = expression;
+    resultDisplay.textContent = opt;
+  }
+
+  // equals (= or Enter)
+  else if (key === "=" || key === "Enter") {
+    num2 = Number(currentValue);
+    let result = operate(num1, num2, opt);
+    expressionDisplay.textContent = expression + "=";
+    resultDisplay.textContent = result;
+
+    num1 = result;
+    currentValue = "";
+    opt = null;
+    expression = String(result);
+  }
+
+  // clear (Escape or Delete)
+  else if (key === "Escape" || key === "Delete") {
+    num1 = null;
+    num2 = null;
+    opt = null;
+    currentValue = "";
+    expression = "";
+    expressionDisplay.textContent = "";
+    resultDisplay.textContent = "0";
+  }
+
+  // decimal point
+  else if (key === ".") {
+    if (!currentValue.includes(".")) {
+      currentValue += ".";
+      expression += ".";
+      resultDisplay.textContent = currentValue;
+      expressionDisplay.textContent = expression;
+    }
+  }
+});
